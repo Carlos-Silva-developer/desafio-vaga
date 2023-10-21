@@ -20,7 +20,7 @@ public class Carro {
     @Column(name = "timestamp_cadastro", nullable = false)
     private Date timestampCadastro;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "modelo_id", nullable = false)
     private Modelo modeloId;
 
