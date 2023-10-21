@@ -15,10 +15,13 @@ public class Modelo {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_marca", nullable = false)
     private Marca idMarca;
 
     @Column(name = "nome", nullable = false)
     private String nome;
+
+    @Column(name = "valor_fipe")
+    private Double valorFipe;
 }
