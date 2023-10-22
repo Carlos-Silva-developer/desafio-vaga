@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -18,7 +18,7 @@ public class Carro {
     private Long id;
 
     @Column(name = "timestamp_cadastro", nullable = false)
-    private Date timestampCadastro;
+    private Timestamp timestampCadastro;
 
     @ManyToOne
     @JoinColumn(name = "modelo_id", nullable = false)

@@ -1,5 +1,6 @@
 package carlos.desafiows.backend.crudcarros.contoller;
 
+import carlos.desafiows.backend.crudcarros.contoller.response.ListarCarroResponse;
 import carlos.desafiows.backend.crudcarros.model.Carro;
 import carlos.desafiows.backend.crudcarros.repository.CarroRepository;
 import carlos.desafiows.backend.crudcarros.service.ListarCarroService;
@@ -15,7 +16,7 @@ public class CarroController {
     private ListarCarroService service;
 
     @GetMapping
-    public List<Carro> listar() {
+    public List<ListarCarroResponse> listar() {
         return service.listarTodos();
     }
 }
