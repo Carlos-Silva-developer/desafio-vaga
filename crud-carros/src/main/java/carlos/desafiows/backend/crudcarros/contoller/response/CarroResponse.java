@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ListarCarroResponse {
+public class CarroResponse {
 
     private Long id;
     private Timestamp timestampCadastro;

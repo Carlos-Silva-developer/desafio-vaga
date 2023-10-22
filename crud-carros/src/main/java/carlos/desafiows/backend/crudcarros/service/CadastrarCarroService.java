@@ -1,28 +1,26 @@
 package carlos.desafiows.backend.crudcarros.service;
 
+import carlos.desafiows.backend.crudcarros.contoller.request.CadastrarCarroRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.CarroResponse;
 import carlos.desafiows.backend.crudcarros.mapper.CarroMapper;
 import carlos.desafiows.backend.crudcarros.model.Carro;
 import carlos.desafiows.backend.crudcarros.repository.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ListarCarroService {
+public class CadastrarCarroService {
+
     @Autowired
-    private CarroRepository repository;
+    private CarroRepository carroRepository;
 
-    public List<CarroResponse> listarTodos() {
+    @Transactional
+    public CarroResponse cadastrar(CadastrarCarroRequest request) {
 
-        List<Carro> carros = repository.findAll();
+        Carro carro = CarroMapper.toEntity(request);
+        carroRepository.save(carro);
+        return CarroMapper.toResponse(carro);
 
-        return carros.stream()
-                .map(carro -> {
-                   CarroResponse response = CarroMapper .toResponse(carro);
-                   return response;
-                }).collect(Collectors.toList());
     }
 }
