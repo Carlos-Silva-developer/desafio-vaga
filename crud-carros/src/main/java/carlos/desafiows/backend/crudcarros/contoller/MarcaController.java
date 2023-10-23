@@ -46,7 +46,7 @@ public class MarcaController {
     }
 
     @DeleteMapping("/{id}/deletar")
-    private void deletar(@PathVariable Long id) {
+    public void deletar(@PathVariable Long id) {
         deletarMarcaService.remover(id);
     }
 }

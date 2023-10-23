@@ -8,7 +8,7 @@ public class ModeloMapper {
 
     public static Modelo toEntiity(ModeloRequest modeloRequest) {
         Modelo modelo = new Modelo();
-        modelo.setIdMarca(modeloRequest.getIdMarca());
+        modelo.setMarca(modeloRequest.getIdMarca());
         modelo.setNome(modeloRequest.getNome());
         modelo.setValorFipe(modeloRequest.getValorFipe());
         return modelo;
@@ -17,7 +17,7 @@ public class ModeloMapper {
     public static ModeloResponse toResponse(Modelo modelo) {
         return ModeloResponse.builder()
                 .id(modelo.getId())
-                .idMarca(modelo.getIdMarca().getId())
+                .idMarca(modelo.getMarca().getId())
                 .nome(modelo.getNome())
                 .valorFipe(modelo.getValorFipe())
                 .build();

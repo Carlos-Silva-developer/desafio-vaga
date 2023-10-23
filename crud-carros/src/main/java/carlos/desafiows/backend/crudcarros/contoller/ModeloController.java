@@ -4,6 +4,7 @@ import carlos.desafiows.backend.crudcarros.contoller.request.ModeloRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.ModeloResponse;
 import carlos.desafiows.backend.crudcarros.service.AtualizarModeloService;
 import carlos.desafiows.backend.crudcarros.service.CadastrarModeloService;
+import carlos.desafiows.backend.crudcarros.service.DeletarModeloService;
 import carlos.desafiows.backend.crudcarros.service.ListarModelosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,9 @@ public class ModeloController {
     @Autowired
     private AtualizarModeloService atualizarModeloService;
 
+    @Autowired
+    private DeletarModeloService deletarModeloService;
+
     @GetMapping("/listar")
     public List<ModeloResponse> listar() {
         return listarModelosService.listar();
@@ -36,9 +40,13 @@ public class ModeloController {
         return cadastrarModeloService.cadastrar(modeloRequest);
     }
 
-//    @PutMapping("/{id}/arualizar")
-//    public ModeloResponse atualizar(@PathVariable Long id, @RequestBody ModeloRequest modeloRequest) {
-//        return atualizarModeloService(id, modeloRequest);
-//    }
+    @PutMapping("/{id}/atualizar")
+    public ModeloResponse atualizar(@PathVariable Long id, @RequestBody ModeloRequest modeloRequest) {
+        return atualizarModeloService.atualizar(id, modeloRequest);
+    }
 
+    @DeleteMapping("/{id}/deletar")
+    public void deletar(@PathVariable Long id) {
+        deletarModeloService.remover(id);
+    }
 }
