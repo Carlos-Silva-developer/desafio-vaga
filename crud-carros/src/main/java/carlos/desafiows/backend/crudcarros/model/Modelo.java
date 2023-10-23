@@ -15,7 +15,7 @@ public class Modelo {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_marca", nullable = false)
     private Marca idMarca;
 
