@@ -1,12 +1,12 @@
 package carlos.desafiows.backend.crudcarros.mapper;
 
-import carlos.desafiows.backend.crudcarros.contoller.request.ModeloRquest;
+import carlos.desafiows.backend.crudcarros.contoller.request.ModeloRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.ModeloResponse;
 import carlos.desafiows.backend.crudcarros.model.Modelo;
 
 public class ModeloMapper {
 
-    public static Modelo toEntiity(ModeloRquest modeloRequest) {
+    public static Modelo toEntiity(ModeloRequest modeloRequest) {
         Modelo modelo = new Modelo();
         modelo.setIdMarca(modeloRequest.getIdMarca());
         modelo.setNome(modeloRequest.getNome());
