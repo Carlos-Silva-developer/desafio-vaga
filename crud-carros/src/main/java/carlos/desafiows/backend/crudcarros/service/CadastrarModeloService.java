@@ -1,9 +1,7 @@
 package carlos.desafiows.backend.crudcarros.service;
 
-import carlos.desafiows.backend.crudcarros.contoller.request.CadastrarModeloRequest;
 import carlos.desafiows.backend.crudcarros.contoller.request.ModeloRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.ModeloResponse;
-import carlos.desafiows.backend.crudcarros.mapper.CadastrarModeloMapper;
 import carlos.desafiows.backend.crudcarros.mapper.ModeloMapper;
 import carlos.desafiows.backend.crudcarros.model.Modelo;
 import carlos.desafiows.backend.crudcarros.repository.ModeloRepository;

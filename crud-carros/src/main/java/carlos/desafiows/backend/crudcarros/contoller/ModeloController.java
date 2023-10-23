@@ -2,6 +2,7 @@ package carlos.desafiows.backend.crudcarros.contoller;
 
 import carlos.desafiows.backend.crudcarros.contoller.request.ModeloRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.ModeloResponse;
+import carlos.desafiows.backend.crudcarros.service.AtualizarModeloService;
 import carlos.desafiows.backend.crudcarros.service.CadastrarModeloService;
 import carlos.desafiows.backend.crudcarros.service.ListarModelosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class ModeloController {
     @Autowired
     private CadastrarModeloService cadastrarModeloService;
 
+    @Autowired
+    private AtualizarModeloService atualizarModeloService;
+
     @GetMapping("/listar")
     public List<ModeloResponse> listar() {
         return listarModelosService.listar();
@@ -31,5 +35,10 @@ public class ModeloController {
     public ModeloResponse cadastrar(@RequestBody ModeloRequest modeloRequest) {
         return cadastrarModeloService.cadastrar(modeloRequest);
     }
+
+//    @PutMapping("/{id}/arualizar")
+//    public ModeloResponse atualizar(@PathVariable Long id, @RequestBody ModeloRequest modeloRequest) {
+//        return atualizarModeloService(id, modeloRequest);
+//    }
 
 }
