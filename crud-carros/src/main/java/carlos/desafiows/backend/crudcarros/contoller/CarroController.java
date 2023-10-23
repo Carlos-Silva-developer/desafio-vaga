@@ -15,14 +15,14 @@ import static org.springframework.http.HttpStatus.CREATED;
 @RequestMapping("/carros")
 public class CarroController {
     @Autowired
-    private ListarCarroService service;
+    private ListarCarroService listarCarroService;
 
     @Autowired
     private CadastrarCarroService cadastrarCarroService;
 
-    @GetMapping
+    @GetMapping("/listar")
     public List<CarroResponse> listar() {
-        return service.listarTodos();
+        return listarCarroService.listarTodos();
     }
 
     @PostMapping

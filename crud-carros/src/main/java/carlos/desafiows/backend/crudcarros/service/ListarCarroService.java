@@ -16,12 +16,11 @@ public class ListarCarroService {
     private CarroRepository repository;
 
     public List<CarroResponse> listarTodos() {
-
         List<Carro> carros = repository.findAll();
 
         return carros.stream()
                 .map(carro -> {
-                   CarroResponse response = CarroMapper .toResponse(carro);
+                   CarroResponse response = CarroMapper.toResponse(carro);
                    return response;
                 }).collect(Collectors.toList());
     }
