@@ -1,21 +1,54 @@
 package carlos.desafiows.backend.crudcarros.contoller;
 
-import carlos.desafiows.backend.crudcarros.model.Carro;
-import carlos.desafiows.backend.crudcarros.repository.CarroRepository;
-import carlos.desafiows.backend.crudcarros.service.ListarCarroService;
+import carlos.desafiows.backend.crudcarros.contoller.request.AtualizarCarroRequest;
+import carlos.desafiows.backend.crudcarros.contoller.request.CadastrarCarroRequest;
+import carlos.desafiows.backend.crudcarros.contoller.response.CarroResponse;
+import carlos.desafiows.backend.crudcarros.service.update.AtualizarCarroService;
+import carlos.desafiows.backend.crudcarros.service.insert.CadastrarCarroService;
+import carlos.desafiows.backend.crudcarros.service.delete.DeletarCarroService;
+import carlos.desafiows.backend.crudcarros.service.list.ListarCarroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.CREATED;
+
 @RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("/carros")
 public class CarroController {
     @Autowired
-    private ListarCarroService service;
+    private ListarCarroService listarCarroService;
 
-    @GetMapping
-    public List<Carro> listar() {
-        return service.listarTodos();
+    @Autowired
+    private CadastrarCarroService cadastrarCarroService;
+
+    @Autowired
+    private AtualizarCarroService atualizarCarroService;
+
+    @Autowired
+    private DeletarCarroService deletarCarroservice;
+
+    @GetMapping("/listar")
+    public List<CarroResponse> listar() {
+        return listarCarroService.listarTodos();
     }
+
+    @PostMapping("/cadastrar")
+    @ResponseStatus(CREATED)
+    public CarroResponse cadastrar(@RequestBody CadastrarCarroRequest carroRequest) {
+        return cadastrarCarroService.cadastrar(carroRequest);
+    }
+
+    @PutMapping("/{id}/atualizar")
+    public CarroResponse atualizar(@PathVariable Long id, @RequestBody AtualizarCarroRequest carroRequest) {
+        return atualizarCarroService.atualizar(id, carroRequest);
+    }
+
+    @DeleteMapping("/{id}/deletar")
+    public void deletar(@PathVariable Long id) {
+        deletarCarroservice.remover(id);
+    }
+
 }
