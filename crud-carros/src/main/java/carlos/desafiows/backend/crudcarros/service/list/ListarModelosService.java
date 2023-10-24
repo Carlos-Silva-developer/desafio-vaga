@@ -1,4 +1,4 @@
-package carlos.desafiows.backend.crudcarros.service;
+package carlos.desafiows.backend.crudcarros.service.list;
 
 import carlos.desafiows.backend.crudcarros.contoller.response.ModeloResponse;
 import carlos.desafiows.backend.crudcarros.mapper.ModeloMapper;

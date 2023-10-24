@@ -2,10 +2,10 @@ package carlos.desafiows.backend.crudcarros.contoller;
 
 import carlos.desafiows.backend.crudcarros.contoller.request.MarcaRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.MarcaResponse;
-import carlos.desafiows.backend.crudcarros.service.AtualizarMarcaService;
-import carlos.desafiows.backend.crudcarros.service.CadastrarMarcaService;
-import carlos.desafiows.backend.crudcarros.service.DeletarMarcaService;
-import carlos.desafiows.backend.crudcarros.service.ListarMarcasService;
+import carlos.desafiows.backend.crudcarros.service.update.AtualizarMarcaService;
+import carlos.desafiows.backend.crudcarros.service.insert.CadastrarMarcaService;
+import carlos.desafiows.backend.crudcarros.service.delete.DeletarMarcaService;
+import carlos.desafiows.backend.crudcarros.service.list.ListarMarcasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +14,7 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/marcas")
 public class MarcaController {
 

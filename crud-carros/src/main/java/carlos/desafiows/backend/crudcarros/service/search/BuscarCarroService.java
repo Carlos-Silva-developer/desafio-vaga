@@ -1,4 +1,4 @@
-package carlos.desafiows.backend.crudcarros.service;
+package carlos.desafiows.backend.crudcarros.service.search;
 
 import carlos.desafiows.backend.crudcarros.model.Carro;
 import carlos.desafiows.backend.crudcarros.repository.CarroRepository;

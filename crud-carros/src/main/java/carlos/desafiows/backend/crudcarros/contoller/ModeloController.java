@@ -2,10 +2,10 @@ package carlos.desafiows.backend.crudcarros.contoller;
 
 import carlos.desafiows.backend.crudcarros.contoller.request.ModeloRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.ModeloResponse;
-import carlos.desafiows.backend.crudcarros.service.AtualizarModeloService;
-import carlos.desafiows.backend.crudcarros.service.CadastrarModeloService;
-import carlos.desafiows.backend.crudcarros.service.DeletarModeloService;
-import carlos.desafiows.backend.crudcarros.service.ListarModelosService;
+import carlos.desafiows.backend.crudcarros.service.update.AtualizarModeloService;
+import carlos.desafiows.backend.crudcarros.service.insert.CadastrarModeloService;
+import carlos.desafiows.backend.crudcarros.service.delete.DeletarModeloService;
+import carlos.desafiows.backend.crudcarros.service.list.ListarModelosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +14,7 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/modelos")
 public class ModeloController {
 

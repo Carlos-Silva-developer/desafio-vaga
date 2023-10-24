@@ -1,12 +1,11 @@
-package carlos.desafiows.backend.crudcarros.service;
+package carlos.desafiows.backend.crudcarros.service.update;
 
 import carlos.desafiows.backend.crudcarros.contoller.request.AtualizarCarroRequest;
-import carlos.desafiows.backend.crudcarros.contoller.request.CarroRequest;
 import carlos.desafiows.backend.crudcarros.contoller.response.CarroResponse;
 import carlos.desafiows.backend.crudcarros.mapper.CarroMapper;
 import carlos.desafiows.backend.crudcarros.model.Carro;
-import carlos.desafiows.backend.crudcarros.model.Modelo;
 import carlos.desafiows.backend.crudcarros.repository.CarroRepository;
+import carlos.desafiows.backend.crudcarros.service.search.BuscarCarroService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
