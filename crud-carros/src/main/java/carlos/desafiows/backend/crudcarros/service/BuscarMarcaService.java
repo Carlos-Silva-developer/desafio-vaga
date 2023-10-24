@@ -16,6 +16,8 @@ public class BuscarMarcaService {
 
     public Marca buscarPorId(Long id) {
         return marcaRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Marca não encontrada"));
+                .orElseThrow(() ->
+                        new ResponseStatusException(NOT_FOUND, "Marca não encontrada")
+                );
     }
 }

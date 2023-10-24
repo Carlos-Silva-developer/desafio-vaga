@@ -4,12 +4,12 @@ import carlos.desafiows.backend.crudcarros.contoller.request.CadastrarCarroReque
 import carlos.desafiows.backend.crudcarros.contoller.response.CarroResponse;
 import carlos.desafiows.backend.crudcarros.model.Carro;
 
+
 public class CarroMapper {
 
     public static Carro toEntity(CadastrarCarroRequest request) {
 
         Carro carro = new Carro();
-        carro.setTimestampCadastro(request.getCadastro());
         carro.setModeloId(request.getModeloId());
         carro.setAno(request.getAno());
         carro.setCombustivel(request.getCombustivel());

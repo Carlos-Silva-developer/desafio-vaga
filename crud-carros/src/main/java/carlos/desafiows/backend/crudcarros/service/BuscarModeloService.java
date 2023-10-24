@@ -16,6 +16,8 @@ public class BuscarModeloService {
 
     public Modelo buscarPorId(Long id) {
         return modeloRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Modelo não encontrado!"));
+                .orElseThrow(() ->
+                        new ResponseStatusException(NOT_FOUND, "Modelo não encontrado!")
+                );
     }
 }

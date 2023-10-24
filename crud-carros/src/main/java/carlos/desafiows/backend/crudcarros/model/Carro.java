@@ -17,7 +17,7 @@ public class Carro {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column(name = "timestamp_cadastro", nullable = false)
+    @Column(name = "timestamp_cadastro")
     private Timestamp timestampCadastro;
 
     @ManyToOne

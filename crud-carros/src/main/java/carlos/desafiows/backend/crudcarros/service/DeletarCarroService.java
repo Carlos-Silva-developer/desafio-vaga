@@ -1,24 +1,25 @@
 package carlos.desafiows.backend.crudcarros.service;
 
-import carlos.desafiows.backend.crudcarros.model.Modelo;
-import carlos.desafiows.backend.crudcarros.repository.ModeloRepository;
+import carlos.desafiows.backend.crudcarros.model.Carro;
+import carlos.desafiows.backend.crudcarros.repository.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
-public class DeletarModeloService {
+public class DeletarCarroService {
+
     @Autowired
-    private ModeloRepository modeloRepository;
+    private CarroRepository carroRepository;
 
     public void remover(Long id) {
-        Modelo modeloExistente = modeloRepository.findById(id)
+        Carro carro = carroRepository.findById(id)
                 .orElseThrow(() ->
-                    new ResponseStatusException(NOT_FOUND, "Marca não encontrada!")
+                        new ResponseStatusException(NOT_FOUND, "Marca não encontrada!")
                 );
-        modeloRepository.deleteById(id);
+        carroRepository.deleteById(id);
     }
+
 }

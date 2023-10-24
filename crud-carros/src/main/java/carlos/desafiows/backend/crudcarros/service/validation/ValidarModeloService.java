@@ -33,13 +33,8 @@ public class ValidarModeloService {
 
     public void validarAtualizacao(ModeloRequest request) {
         boolean nomeJaExiste = modeloRepository.existsByNome(request.getNome());
-        boolean nome = request.getNome().isEmpty();
-        boolean valor = request.getValorFipe().isNaN();
-
         if (nomeJaExiste) {
             throw new ResponseStatusException(BAD_REQUEST, "Modelo ja cadastrado!");
-        } else if (nome || valor) {
-            throw new ResponseStatusException(BAD_REQUEST, "Novos dados inválidos!");
         }
     }
 }
