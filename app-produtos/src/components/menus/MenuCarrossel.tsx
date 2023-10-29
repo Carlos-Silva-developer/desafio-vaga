@@ -1,27 +1,32 @@
-import Promocao from "../utilitarios/Promocao"
+import PromoCard from "../utilitarios/PormoCard"
 
 export default function MenuCarrossel() {
     return (
         <menu>
             <ul className="flex">
-                <li className="px-5">
-                    <Promocao src="/img/mix-de-legumes.png" alt="cajusinho" width={150} height={150} />
+                <li className="p-5">
+                    <PromoCard 
+                        src="/img/mix-de-legumes.png" 
+                        alt="cajusinho" 
+                        valor={9.99}/>
                 </li>
-                <li className="px-5">
-                    <Promocao src="/img/picles.png" alt="cajusinho" width={150} height={100} />
+                <li className="p-5">
+                    <PromoCard 
+                        src="/img/picles.png" 
+                        alt="cajusinho" 
+                        valor={9.99}/>
                 </li>
-                <li className="px-5">
-                    <Promocao src="/img/cajusinho.png" alt="cajusinho" width={150} height={150} />
+                <li className="p-5">
+                    <PromoCard 
+                        src="/img/cajusinho.png" 
+                        alt="cajusinho" 
+                        valor={9.99}/>
                 </li>
-                <li className="px-5">
-                    <Promocao 
+                <li className="p-5">
+                    <PromoCard 
                         src="/img/vitamina.png" 
                         alt="cajusinho" 
-                        width={150} 
-                        height={150} 
-                        texto="blablavla"
-                        valor={500.9}
-                        textoBotao="Buy"
+                        valor={9.99}
                         />
                 </li>
             </ul>
