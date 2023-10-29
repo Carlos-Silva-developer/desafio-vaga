@@ -6,11 +6,8 @@ interface CabecalhoProps {
 
 export default function Cabecalho(props: CabecalhoProps) {
     return (
-        <div className={`
-            ${props.modoNoturno ? 'text-black' : 'text-white'}
-            ${props.modoNoturno ? 'bg-red-500' : 'bg-black'}
-        `}>
-            <h1>{props.texto}</h1>
-        </div>
+        <header className="flex justify-center py-8 border-4 w-full">
+            <h1 className="text-4xl">{props.texto}</h1>
+        </header>
     )
 }

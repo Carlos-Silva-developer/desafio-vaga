@@ -4,6 +4,8 @@ interface CardProps {
     src: string
     alt: string
     valor: number
+    width?: number
+    height?: number
 }
 
 export default function PromoCard(props: CardProps) {
@@ -14,8 +16,8 @@ export default function PromoCard(props: CardProps) {
         <section>
             <Image 
                 src={props.src}
-                width={baseWidth}
-                height={baseHeight}
+                width={props.width ? props.width : baseWidth}
+                height={props.height ? props.height : baseHeight}
                 alt={props.alt}
                 />                
            <h2>${props.valor}</h2>
