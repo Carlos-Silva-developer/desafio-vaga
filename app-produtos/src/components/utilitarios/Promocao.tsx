@@ -13,7 +13,7 @@ interface PromoProps {
 export default function Promocao(props: PromoProps) {
 
     return (
-        <section className='flex ps-10 py-6 justify-evenly w-auto'>
+        <section className='flex ms-16 ps-16 pt-6 justify-around w-auto'>
             <Image className='py-2'
                 src={props.src}
                 width={props.width}

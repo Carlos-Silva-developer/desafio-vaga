@@ -9,7 +9,7 @@ export function CorpoPrincipal({ imagemSelecionada }: any) {
                 src={imagemSelecionada.src}
                 alt={imagemSelecionada.alt}
                 width={200} 
-                height={300} 
+                height={0} 
                 valor={imagemSelecionada.valor} 
                 texto={imagemSelecionada.texto}
                 textoBotao="Buy" />
