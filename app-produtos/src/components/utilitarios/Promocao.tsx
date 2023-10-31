@@ -21,7 +21,7 @@ export default function Promocao(props: PromoProps) {
                 alt={props.alt}
             />
             <div className='w-6/12 py-6 flex flex-col justify-around'>
-                <h1 className='text-4xl'>{props.valor}</h1>
+                <h1 className='text-4xl'>${props.valor}</h1>
                 <p>{props.texto}</p>
                 <button className='bg-slate-500 w-28 h-16 text-3xl'>{props.textoBotao}</button>
             </div>

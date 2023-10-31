@@ -1,16 +1,15 @@
  import Promocao from "../utilitarios/Promocao"
  import { BotaoEditar, BotaoApagar } from "../utilitarios/Botoes"
 
-export function CorpoPrincipal(
-    { imagemSelecionada }: any) {
+export function CorpoPrincipal({ imagemSelecionada }: any) {
 
     return (
         <section>
             <Promocao 
                 src={imagemSelecionada.src}
                 alt={imagemSelecionada.alt}
-                width={400} 
-                height={500} 
+                width={200} 
+                height={300} 
                 valor={imagemSelecionada.valor} 
                 texto={imagemSelecionada.texto}
                 textoBotao="Buy" />

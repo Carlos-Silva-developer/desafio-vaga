@@ -11,10 +11,10 @@ interface CardProps {
 
 export default function PromoCard(props: CardProps) {
 
-    const baseWidth = 200
-    const baseHeight = 0
+    const baseWidth = 120
+    const baseHeight = 120
     return (
-        <section>
+        <section className='py-10 px-5 flex flex-col items-center'>
             <Image 
                 src={props.src}
                 width={props.width ? props.width : baseWidth}
