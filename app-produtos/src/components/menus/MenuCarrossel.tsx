@@ -1,34 +1,26 @@
 import PromoCard from "../utilitarios/PormoCard"
+import { carregar } from '../../app/const/banco_de_dados'
 
-export default function MenuCarrossel() {
+export default function MenuCarrossel(
+    { produtos, setImagemPrincipal }: any) {  
+    const listaProdutos =  carregar()      
+
+    function clicar(produto: any) {
+        const produtoSelecionado = listaProdutos.find((produtoBanco) => produto.src === produtoBanco.src)
+        setImagemPrincipal(produtoSelecionado)
+    }
+
+    const produto = produtos.map((produto: any) => {
+        return (
+            <li key={produto.nome} onClick={() => clicar(produto)}>
+                <PromoCard nome={produto.nome} src={produto.src} alt={produto.alt} valor={produto.valor} />
+            </li>
+        )
+    })
     return (
         <menu>
-            <ul className="flex">
-                <li className="p-5">
-                    <PromoCard 
-                        src="/img/mix-de-legumes.png" 
-                        alt="cajusinho" 
-                        valor={9.99}/>
-                </li>
-                <li className="p-5">
-                    <PromoCard 
-                        src="/img/picles.png" 
-                        alt="cajusinho" 
-                        valor={9.99}/>
-                </li>
-                <li className="p-5">
-                    <PromoCard 
-                        src="/img/cajusinho.png" 
-                        alt="cajusinho" 
-                        valor={9.99}/>
-                </li>
-                <li className="p-5">
-                    <PromoCard 
-                        src="/img/vitamina.png" 
-                        alt="cajusinho" 
-                        valor={9.99}
-                        />
-                </li>
+            <ul className="flex flex-wrap gap-5" >
+                {produto}
             </ul>
         </menu>
     )

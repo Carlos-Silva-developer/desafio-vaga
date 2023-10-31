@@ -1,17 +1,18 @@
  import Promocao from "../utilitarios/Promocao"
  import { BotaoEditar, BotaoApagar } from "../utilitarios/Botoes"
 
-export function CorpoPrincipal() {
+export function CorpoPrincipal(
+    { imagemSelecionada }: any) {
 
     return (
         <section>
             <Promocao 
-                src="/img/cajusinho.png" 
-                alt="cajusinho" 
+                src={imagemSelecionada.src}
+                alt={imagemSelecionada.alt}
                 width={400} 
                 height={500} 
-                valor={5.99} 
-                texto="Super sipplement for your health and well-being, natural and 100% functional, take advantage of this offer" 
+                valor={imagemSelecionada.valor} 
+                texto={imagemSelecionada.texto}
                 textoBotao="Buy" />
         </section>
     )

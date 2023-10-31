@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 interface CardProps {
+    nome?: string
     src: string
     alt: string
     valor: number
