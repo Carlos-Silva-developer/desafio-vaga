@@ -18,7 +18,7 @@ export default function Corpo() {
         <section className="flex flex-col w-full border-4">
             <CorpoPrincipal imagemSelecionada={imagemPrincipal}></CorpoPrincipal>
             <MenuCarrossel listaProdutos={produtos} setImagemPrincipal={setImagemPrincipal}></MenuCarrossel>
-            <CorpoSecundario></CorpoSecundario>
+            <CorpoSecundario listaProdutos={produtos}></CorpoSecundario>
             <Rodape></Rodape>
         </section>
     )

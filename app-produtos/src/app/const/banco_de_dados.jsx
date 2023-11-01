@@ -1,7 +1,7 @@
     let arrayDeProdutos = [
-        { nome : "maca", src : "/img/maca.png", alt : "Imagem de uma maçã", valor: 0.22, texto: "texto da maçã"},
+        { nome : "maca", src : "/img/maca.png", alt : "Imagem de uma maçã", valor: 0.22, texto: "Healty power pills most healthy for u"},
         { nome : "salada_verde", src: "/img/salada-verde.png",  alt: "Imagem de uma salada verde", valor: 0.22, texto: "texto da salada verde"},
-        { nome : "agua", src : "/img/jarra-de-agua.png", alt : "Imagem de um jarro transparente com agua", valor: 0.22, texto: "texto da agua" },
+        { nome : "agua", src : "/img/jarra-de-agua.png", alt : "Imagem de um jarro transparente com agua", valor: 0.22, texto: "long term health" },
         { nome : "suplemento1", src : "/img/pilulas.png", alt : "Imagem de suplemento vitaminico", valor: 0.22, texto: "texto da suplemento1" },
         { nome : "suplemteno2", src : "/img/vitamina.png", alt : "Imagem de vitamina em suplemento", valor: 0.22, texto: "texto da suplem,ento" },
         { nome : "suco_banana", src : "/img/jarra-de-agua.png", alt : "Imagem de um suco de banana", valor: 0.22, texto: "texto da laranja" },

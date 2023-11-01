@@ -1,28 +1,27 @@
 import { PromoVitrineDireita, PromoVitrineEsquerda } from "../utilitarios/PromoVitrine";
 
-export default function CorpoSecundario() {
+
+export default function CorpoSecundario({listaProdutos}: any) {
+
+    let promocaoEsquerda = listaProdutos.find( (produtoBanco: any) => produtoBanco.nome === "maca")
+    let promocaoDireita = listaProdutos.find( (produtoBanco: any) => produtoBanco.nome === "agua")
     return (
-        <section className="flex w-full border-4 justify-between p-10">
+        <section className="flex w-full border-4 justify-normal p-5">
             <PromoVitrineEsquerda
-                src="/img/maca.png"
-                height={0}
-                width={300}
-                titulo="titulo"
-                texto="Healty power pills most healthy for u"
+                src={promocaoEsquerda.src}
+                texto={promocaoEsquerda.texto}
                 textoBotao="BUY NOW"
                 descricao="cheap and powerfull remedy for long term haeling"
-                alt="Promoção secundaria"
-                valor={0.22}
+                alt="Promoção do dia"
+                valor={promocaoEsquerda.valor}
             />
 
             <PromoVitrineDireita
-                src="/img/jarra-de-agua.png"
-                height={0}
-                width={300}
+                src={promocaoDireita.src}
                 titulo="BEST DRINK"
-                texto="long term health"
+                texto={promocaoDireita.texto}
                 textoBotao="click here and join us with these magical benefits"
-                alt="Promoção secundaria"
+                alt={promocaoDireita.alt}
                 valor="FOR FREE"
             />
         </section>

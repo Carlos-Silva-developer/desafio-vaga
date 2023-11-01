@@ -6,7 +6,7 @@ export default function Home() {
   return (
 
         <body>
-            <div className="flex flex-col w-3/4 m-auto">
+            <div className="flex flex-col w-10/12 m-auto">
                 <Cabecalho texto="My Products"></Cabecalho>
 
                 <section className="flex">
