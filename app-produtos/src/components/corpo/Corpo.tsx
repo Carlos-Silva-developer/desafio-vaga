@@ -15,7 +15,7 @@ export default function Corpo() {
     )
 
     return (
-        <section className="flex flex-col w-full border-4">
+        <section className="flex flex-col w-full border-4 border-black">
             <CorpoPrincipal imagemSelecionada={imagemPrincipal}></CorpoPrincipal>
             <MenuCarrossel listaProdutos={produtos} setImagemPrincipal={setImagemPrincipal}></MenuCarrossel>
             <CorpoSecundario listaProdutos={produtos}></CorpoSecundario>

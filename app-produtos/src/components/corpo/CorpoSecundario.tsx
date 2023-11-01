@@ -3,10 +3,10 @@ import { PromoVitrineDireita, PromoVitrineEsquerda } from "../utilitarios/PromoV
 
 export default function CorpoSecundario({listaProdutos}: any) {
 
-    let promocaoEsquerda = listaProdutos.find( (produtoBanco: any) => produtoBanco.nome === "maca")
-    let promocaoDireita = listaProdutos.find( (produtoBanco: any) => produtoBanco.nome === "agua")
+    let promocaoEsquerda = listaProdutos.find((produtoBanco: any) => produtoBanco.nome === "maca")
+    let promocaoDireita = listaProdutos.find((produtoBanco: any) => produtoBanco.nome === "agua")
     return (
-        <section className="flex w-full border-4 justify-normal p-5">
+        <section className="flex w-full border-4 justify-evenly mt-8">
             <PromoVitrineEsquerda
                 src={promocaoEsquerda.src}
                 texto={promocaoEsquerda.texto}

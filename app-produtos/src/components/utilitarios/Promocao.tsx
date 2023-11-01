@@ -5,25 +5,27 @@ interface PromoProps {
     width: number
     height: number
     alt: string
-    valor?: number
+    valor?: number | string
     texto?: string
     textoBotao?: string
 }
     
 export default function Promocao(props: PromoProps) {
 
+    const valorFormatado = props.valor?.toString().replace(".", ",")
+
     return (
-        <section className='flex ms-16 ps-16 pt-6 justify-around w-auto'>
-            <Image className='py-2'
+        <section className='flex ps-3 py-3 justify-around w-auto'>
+            <Image className='m-2'
                 src={props.src}
                 width={props.width}
                 height={props.height}
                 alt={props.alt}
             />
-            <div className='w-6/12 py-6 flex flex-col justify-around'>
-                <h1 className='text-4xl'>${props.valor}</h1>
-                <p>{props.texto}</p>
-                <button className='bg-slate-500 w-28 h-16 text-3xl'>{props.textoBotao}</button>
+            <div className='w-6/12 pt-7 flex flex-col'>
+                <h1 className='text-4xl ps-2'>$ {valorFormatado}</h1>
+                <p className='font-sans font-bold'>{props.texto}</p>
+                <button className='border-2 border-black w-32 h-14 text-4xl font-bold font-sans'>{props.textoBotao}</button>
             </div>
         </section>
     )

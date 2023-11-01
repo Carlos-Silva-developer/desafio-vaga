@@ -8,7 +8,7 @@ export function CorpoPrincipal({ imagemSelecionada }: any) {
             <Promocao 
                 src={imagemSelecionada.src}
                 alt={imagemSelecionada.alt}
-                width={200} 
+                width={380} 
                 height={0} 
                 valor={imagemSelecionada.valor} 
                 texto={imagemSelecionada.texto}
@@ -19,7 +19,7 @@ export function CorpoPrincipal({ imagemSelecionada }: any) {
 
 export function CorpoPrincipalGerencia() {
     return (
-        <section className="border-4 w-10/12">
+        <section className="border-4 border-black w-10/12">
             <header className="flex m-14">
                 <h1 className="border-4 border-red-400">List of product</h1>
                 <button className="border-4">+ New</button>

@@ -3,6 +3,8 @@ import { useState } from "react"
 
 export default function MenuCarrossel({ listaProdutos, setImagemPrincipal }: any) {
     const [indice, setIndice] = useState(0);
+    const setaEsquerda = "<"
+    const setaDireita = ">"
 
     function menuVoltar() {
         const ultimoItem: any = listaProdutos.pop();
@@ -30,12 +32,20 @@ export default function MenuCarrossel({ listaProdutos, setImagemPrincipal }: any
     });
 
     return (
-        <menu className="flex border-2 m-5 mx-auto">
-            <button onClick={() => menuVoltar()}>botão esquerda</button>
-            <div className="flex flex-wrap h-56 gap-5 overflow-hidden carousel-container snap-x align-middle justify-evenly" >
+        <menu className="flex border-2 border-black mx-10 px-5">
+            <button 
+                className="text-6xl"
+                onClick={() => menuVoltar()}> 
+                    {setaEsquerda} 
+            </button>
+            <div className="flex flex-wrap h-40 overflow-hidden carousel-container snap-x align-middle justify-evenly" >
                 {produto}
             </div>
-            <button onClick={() => menuAvancar()}>botão direita</button>
+            <button 
+                className="text-6xl"
+                onClick={() => menuAvancar()}>
+                    {setaDireita}
+            </button>
         </menu>
     );
 }
