@@ -16,9 +16,6 @@ export default function CorpoSecundario({listaProdutos}: any) {
                 alt="Promoção do dia"
                 valor={promocaoEsquerda.valor}
             />
-
-            
-
             <PromoVitrineDireita
                 src={promocaoDireita.src}
                 titulo="BEST DRINK"
