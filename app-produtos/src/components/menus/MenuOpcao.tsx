@@ -4,9 +4,12 @@ interface MenuOpcaoProps {
 }
 
 export default function MenuOpcao(props: MenuOpcaoProps) {
+    const urlBase = "http://localhost:3000/"
+    const textoFormatado = props.texto.toLowerCase()
+    
     return (
     <>
-       <li>{props.texto}</li>
+       <p className="font-bold text-xl"><a href={urlBase + textoFormatado}>- {props.texto}</a></p>
     </>
     )
 }

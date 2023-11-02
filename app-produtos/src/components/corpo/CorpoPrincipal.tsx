@@ -1,105 +1,41 @@
- import Promocao from "../utilitarios/Promocao"
- import { BotaoEditar, BotaoApagar } from "../utilitarios/Botoes"
+"use client" 
+
+import Promocao from "../utilitarios/Promocao"
+ import { TabelaGerencia } from "../utilitarios/TabelaGerencia"
+
 
 export function CorpoPrincipal({ imagemSelecionada }: any) {
 
     return (
-        <section>
+        <section className="h-64">
             <Promocao 
                 src={imagemSelecionada.src}
                 alt={imagemSelecionada.alt}
-                width={380} 
+                width={350} 
                 height={0} 
                 valor={imagemSelecionada.valor} 
                 texto={imagemSelecionada.texto}
                 textoBotao="Buy" />
+                <hr className="h-0.5 w-10/12 bg-gray-700 align-middle justify-center mx-auto mt-3" />
+
         </section>
     )
 }
 
 export function CorpoPrincipalGerencia() {
+
+
     return (
         <section className="border-4 border-black w-10/12">
             <header className="flex m-14">
                 <h1 className="border-4 border-red-400">List of product</h1>
                 <button className="border-4">+ New</button>
             </header>
+        
 
-            <div className="mx-36">
-                <table className="w-9/12 border-4">
-                    <tr>
-                        <td className="px-5">Red Apple</td>
-                        <td>$1.99</td>
-                        <td>
-                            <BotaoEditar />
-                        </td>
-                        <td>
-                            <BotaoApagar />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-5">Green Salad</td>
-                        <td>$4.66</td>
-                        <td>
-                            <BotaoEditar />
-                        </td>
-                        <td>
-                            <BotaoApagar />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-5">Water Jar</td>
-                        <td>$3.66</td>
-                        <td>
-                            <BotaoEditar />
-                        </td>
-                        <td >
-                            <BotaoApagar />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-5">Natural Supplement 1</td>
-                        <td>$7.86</td>
-                        <td>
-                            <BotaoEditar />
-                        </td>
-                        <td>
-                            <BotaoApagar />
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td className="px-5">Natural Supplement 2</td>
-                        <td>$5.00</td>
-                        <td>
-                            <BotaoEditar />
-                        </td>
-                        <td>
-                            <BotaoApagar />
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td className="px-5">Banana Juice</td>
-                        <td>$4.77</td>
-                        <td>
-                            <BotaoEditar />
-                        </td>
-                        <td>
-                            <BotaoApagar />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-5">Natural Orange Juice</td>
-                        <td>$3.21</td>
-                        <td>
-                            <BotaoEditar />
-                        </td>
-                        <td>
-                            <BotaoApagar />
-                        </td>
-                    </tr>                     
-                </table>
-
-            </div>
+            <TabelaGerencia></TabelaGerencia>
+        
+            
         </section>
 
     )

@@ -38,7 +38,7 @@ export default function MenuCarrossel({ listaProdutos, setImagemPrincipal }: any
                 onClick={() => menuVoltar()}> 
                     {setaEsquerda} 
             </button>
-            <div className="flex flex-wrap h-40 overflow-hidden carousel-container snap-x align-middle justify-evenly" >
+            <div className="flex flex-wrap h-36 overflow-hidden carousel-container snap-x align-middle justify-evenly" >
                 {produto}
             </div>
             <button 

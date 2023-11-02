@@ -13,7 +13,7 @@ interface VitrineProps {
 export function PromoVitrineEsquerda(props: VitrineProps) {
 
     return (
-        <div className='border-4'>    
+        <div className=''>    
             <section className='flex align-middle'>
                 <Image
                     src={props.src}
@@ -24,10 +24,10 @@ export function PromoVitrineEsquerda(props: VitrineProps) {
                 />
                     <div className='flex flex-col justify-center w-52'>
                         <h1 className='text-3xl font-extrabold'>
-                            ${props.valor}
+                            Only ${props.valor}
                         </h1>
-                        <p className='text-justify'>{props.texto}</p>
-                        <p className='font-bold text-justify'>
+                        <p className=''>{props.texto}</p>
+                        <p className='font-bold'>
                             {props.descricao}
                         </p>
                     </div>
@@ -42,7 +42,7 @@ export function PromoVitrineEsquerda(props: VitrineProps) {
 export function PromoVitrineDireita(props: VitrineProps) {
 
     return (
-        <div className='border-4'>
+        <div className='border-l-4 border-gray-500 ms-5'>
             <section className='flex p-4'>
                 <div className='flex'>
                 <Image
@@ -54,8 +54,10 @@ export function PromoVitrineDireita(props: VitrineProps) {
                 
                     <div className='flex flex-col justify-center'>
                         <h1 className='text-3xl font-extrabold'>{props.titulo}</h1>
-                        <p className='text-2xl w-40 font-extrabold italic text-red-600 border-2 p-4'>{props.valor}</p>
-                        <p >{props.texto}</p>
+                        <p className='text-2xl w-40 h-10 ps-2 pt-2 font-extrabold italic align-middle justify-center text-red-500 border-2 border-black'>
+                            {props.valor}
+                        </p>
+                        <p className='justify-center align-middle'>{props.texto}</p>
                         <p>{props.descricao}</p>                       
                     </div>       
 

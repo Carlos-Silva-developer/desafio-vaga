@@ -6,8 +6,8 @@ interface CabecalhoProps {
 
 export default function Cabecalho(props: CabecalhoProps) {
     return (
-        <header className="flex justify-center py-8 border-4 w-full">
-            <h1 className="text-4xl">{props.texto}</h1>
+        <header className="flex justify-center h-28 py-8 border-4 border-b-0 border-black w-full">
+            <h1 className="text-6xl">{props.texto}</h1>
         </header>
     )
 }
