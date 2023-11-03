@@ -20,13 +20,19 @@ public class DeletarMarcaService {
     @Autowired
     private ModeloRepository modeloRepository;
 
+    @Autowired
+    private DeletarModeloService deletarModeloService;
+
     public void remover(Long id) {
         Marca marcaExistente = marcaRepository.findById(id)
                 .orElseThrow(() ->
                     new ResponseStatusException(NOT_FOUND, "Marca não encontrada!")
                 );
         List<Modelo> modelos = modeloRepository.findByMarca(marcaExistente);
-        modeloRepository.deleteAll(modelos);
+        for(Modelo modelo : modelos) {
+            deletarModeloService.remover(modelo.getId());
+        }
+
         marcaRepository.deleteById(marcaExistente.getId());
     }
 }

@@ -1,9 +1,0 @@
-# spring:
-#  datasource:
-#    url: jdbc:postgresql://0.0.0.0:5433/carros_api
-#    username: postgres
-#    password: postgres
-#    driver-class-name: org.postgresql.Driver
-#  jpa:
-#    hibernate:
-#      ddl-auto=update

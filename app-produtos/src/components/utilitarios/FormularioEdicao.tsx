@@ -37,4 +37,3 @@ export default function FormularioEdicao({ produtoEmEdicao, editarProduto }: any
     </div>
   );
 }
-

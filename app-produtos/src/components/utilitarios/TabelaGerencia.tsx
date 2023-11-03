@@ -4,18 +4,17 @@ import FormularioEdicao from './FormularioEdicao';
 
 export function TabelaGerencia({ produtos }: any) {
 
-    const dadosDoBanco = produtos
+    const dadosDoBanco = produtos;
     const [produtoEmEdicao, setProdutoEmEdicao] = useState(false);
-    const [listaDeProdutos, setListaDeProdutos] = useState(dadosDoBanco)
+    const [listaDeProdutos, setListaDeProdutos] = useState(dadosDoBanco);
 
     useEffect(() => {
         rowProdutos()
-    }, [setListaDeProdutos]);
+    }, [listaDeProdutos, setListaDeProdutos]);
 
-    function adicionarProduto(novoProduto: any) {
-        dadosDoBanco.push(novoProduto)
-        localStorage.setItem("produtos", JSON.stringify(dadosDoBanco))
-    }
+    useEffect(() => {
+        setListaDeProdutos(produtos);
+    }, [produtos])
 
     function editarProduto(produtoEmEdicao: any, produtoEditado: any) {
         const produtosAtualizados = dadosDoBanco.map((produto: any) => {
@@ -25,26 +24,36 @@ export function TabelaGerencia({ produtos }: any) {
                 return produto
             }
         })
+        setProdutoEmEdicao(false);
         setListaDeProdutos(produtosAtualizados)
         localStorage.setItem("produtos", JSON.stringify(produtosAtualizados))
     }
 
     function rowProdutos() {
-        return listaDeProdutos.map((produto: any) => {
-            return (
-                <tr key={produto.nome}>
-                    <td className="px-5">{produto.nome}</td>
-                    <td>$ {produto.valor.toString()}</td>
-                    <button onClick={() => setProdutoEmEdicao(produto)}>editar</button>
-                    <button
-                        className="bg-red-500 px-3 ms-3"
-                        onClick={() => apagar(produto.nome)}>
-                        <p>X</p>
-                    </button>
-                </tr>
-
-            );
-        });
+        if (listaDeProdutos.length > 0) {
+            return listaDeProdutos.map((produto: any) => {
+                return (
+                    <tr key={produto.nome} className="">
+                        <td className="px-2 ">{produto.nome}</td>
+                        <td className="px-2">$ {produto.valor.toString()}</td>
+                        <button 
+                            className="px-2"
+                            onClick={() => setProdutoEmEdicao(produto)}>
+                               <p>
+                                    editar
+                                </p> 
+                        </button>
+                        <button
+                            className="bg-red-500 px-3 ms-3"
+                            onClick={() => apagar(produto.nome)}>
+                            <p>X</p>
+                        </button>
+                    </tr>
+                );
+            });
+        } else {
+            return (<p className="w-full p-2 flex justify-center">Não há produtos disponíveis</p>)
+        }
     }
 
     function apagar(nome: string) {
@@ -53,17 +62,12 @@ export function TabelaGerencia({ produtos }: any) {
         localStorage.setItem("produtos", JSON.stringify(novaLista))
     }
 
-    return <>
-        <table className="w-9/12 border-4">
-            <tbody>
-                {rowProdutos()}
-            </tbody>
-        </table>
-        {produtoEmEdicao &&
-            <FormularioEdicao
-                produtoEmEdicao={produtoEmEdicao}
-                editarProduto={editarProduto}>
-            </FormularioEdicao>}
-
-    </>
+    return (
+        <div className="w-full border-black">
+            <table className="w-7/12 h-96 flex justify-evenly">
+                <tbody className="border-4 border-black p-5">{rowProdutos()}</tbody>
+            </table>
+            {produtoEmEdicao && <FormularioEdicao produtoEmEdicao={produtoEmEdicao} editarProduto={editarProduto} />}
+        </div>
+    )
 }
