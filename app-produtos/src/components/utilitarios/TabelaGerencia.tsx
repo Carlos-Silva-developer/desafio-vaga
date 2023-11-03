@@ -1,54 +1,73 @@
 "use client"
 import { useState, useEffect } from "react"
 import FormularioEdicao from './FormularioEdicao';
-import { carregar } from "@/app/const/banco_de_dados";
 
+export function TabelaGerencia({ produtos }: any) {
 
-export function TabelaGerencia() {
+    const dadosDoBanco = produtos;
     const [produtoEmEdicao, setProdutoEmEdicao] = useState(false);
-    const [listaDeProdutos, setListaDeProdutos] = useState([])
+    const [listaDeProdutos, setListaDeProdutos] = useState(dadosDoBanco);
 
     useEffect(() => {
-        // Carregue os dados do banco de dados e defina-os em listaDeProdutos
-        const dadosDoBanco: any = carregar(); // Substitua isso pelo método de carregamento real
-        setListaDeProdutos(dadosDoBanco);
-      }, []); // O array vazio faz com que o efeito só seja executado uma vez após a montagem
-    
+        rowProdutos()
+    }, [listaDeProdutos, setListaDeProdutos]);
 
-    let produto = listaDeProdutos.map((produto: any) => {
-        return (            
-                <tr key={produto.nome}>
-                    <td className="px-5">{produto.nome}</td>
-                    <td>{produto.valor}</td>
-                    <td><button onClick={() => setProdutoEmEdicao(produto)}>editar</button></td>
-                    <button 
-                        className="bg-red-500 px-3 ms-3"
-                        onClick={() => apagar(produto.nome)}>
+    useEffect(() => {
+        setListaDeProdutos(produtos);
+    }, [produtos])
+
+    function editarProduto(produtoEmEdicao: any, produtoEditado: any) {
+        const produtosAtualizados = dadosDoBanco.map((produto: any) => {
+            if (produto === produtoEmEdicao) {
+                return produtoEditado
+            } else {
+                return produto
+            }
+        })
+        setProdutoEmEdicao(false);
+        setListaDeProdutos(produtosAtualizados)
+        localStorage.setItem("produtos", JSON.stringify(produtosAtualizados))
+    }
+
+    function rowProdutos() {
+        if (listaDeProdutos.length > 0) {
+            return listaDeProdutos.map((produto: any) => {
+                return (
+                    <tr key={produto.nome} className="">
+                        <td className="px-2 ">{produto.nome}</td>
+                        <td className="px-2">$ {produto.valor.toString()}</td>
+                        <button 
+                            className="px-2"
+                            onClick={() => setProdutoEmEdicao(produto)}>
+                               <p>
+                                    editar
+                                </p> 
+                        </button>
+                        <button
+                            className="bg-red-500 px-3 ms-3"
+                            onClick={() => apagar(produto.nome)}>
                             <p>X</p>
-                    </button>
-    
-                </tr>
+                        </button>
+                    </tr>
                 );
             });
-    
-        function apagar(nome: string) {
-            const novaLista = listaDeProdutos.filter((produto: { nome: string; }) => produto.nome !== nome)
-            setListaDeProdutos(novaLista)
-        }   
-    
-    
+        } else {
+            return (<p className="w-full p-2 flex justify-center">Não há produtos disponíveis</p>)
+        }
+    }
 
-    return <>
-                <table className="w-9/12 border-4">
-                    <tbody>
-                        {produto}
-                    </tbody>                   
-                </table>
-                {produtoEmEdicao && 
-                <FormularioEdicao 
-                    produtoEmEdicao={produtoEmEdicao} 
-                    setListaDeProdutos={setListaDeProdutos}>
-                </FormularioEdicao>}                  
+    function apagar(nome: string) {
+        const novaLista = listaDeProdutos.filter((produto: { nome: string; }) => produto.nome !== nome)
+        setListaDeProdutos(novaLista)
+        localStorage.setItem("produtos", JSON.stringify(novaLista))
+    }
 
-            </>
+    return (
+        <div className="w-full border-black">
+            <table className="w-7/12 h-96 flex justify-evenly">
+                <tbody className="border-4 border-black p-5">{rowProdutos()}</tbody>
+            </table>
+            {produtoEmEdicao && <FormularioEdicao produtoEmEdicao={produtoEmEdicao} editarProduto={editarProduto} />}
+        </div>
+    )
 }
